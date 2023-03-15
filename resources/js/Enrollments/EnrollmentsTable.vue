@@ -1,5 +1,5 @@
 <template>
-    <h1>asdasdasd</h1>
+    <h1>Enrollments</h1>
 </template>
 
 <script>

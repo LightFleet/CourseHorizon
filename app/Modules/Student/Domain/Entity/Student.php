@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Students\Domain\Entity;
+namespace App\Modules\Student\Domain\Entity;
 
 class Student
 {
