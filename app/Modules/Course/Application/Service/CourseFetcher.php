@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Enrollment\Application\Service;
+namespace App\Modules\Course\Application\Service;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;

@@ -7,5 +7,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/courses', [\App\Modules\Enrollment\Application\Controller\Api\CourseController::class, 'courses']);
+Route::get('/courses', [\App\Modules\Enrollment\Application\Controller\Api\CourseController::class, 'fetchCourses']);
+Route::put('/course', [\App\Modules\Enrollment\Application\Controller\Api\CourseController::class, 'createCourse']);
 
