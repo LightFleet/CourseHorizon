@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', [\App\Modules\CourseEnrollment\Infrastructure\Sms\Controllers\SmsController::class, 'showSomething']);
+Route::get('/', [\App\Modules\Enrollment\Application\Controller\Api\ApiController::class, 'index']);
