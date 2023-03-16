@@ -4,7 +4,6 @@ namespace Tests\Unit\Modules\Course\Application\Service;
 
 use App\Modules\Course\Application\Assembler\CourseCreationAssembler;
 use App\Modules\Course\Application\Assembler\CourseUpdateAssembler;
-use App\Modules\Course\Application\DTO\CourseCreationDTO;
 use App\Modules\Course\Application\DTO\CourseUpdateDTO;
 use App\Modules\Course\Application\RequestMapper\CourseRequestMapper;
 use App\Modules\Course\Application\Service\CourseUpdater;
@@ -15,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 class CourseUpdaterTest extends TestCase
 {
-    private CourseUpdater $creator;
+    private CourseUpdater $updater;
     /**
      * @var CourseRequestMapper|mixed|\PHPUnit\Framework\MockObject\MockObject
      */
@@ -30,7 +29,7 @@ class CourseUpdaterTest extends TestCase
         $this->mapper = $this->createMock(CourseRequestMapper::class);
         $this->assembler = $this->createMock(CourseUpdateAssembler::class);
 
-        $this->creator = new CourseUpdater($this->mapper, $this->assembler);
+        $this->updater = new CourseUpdater($this->mapper, $this->assembler);
     }
 
     /**
@@ -49,7 +48,7 @@ class CourseUpdaterTest extends TestCase
             self::expectException($expectedException::class);
         }
 
-        $this->creator->updateCourse($request, $this->createMock(Course::class));
+        $this->updater->updateCourse($request, $this->createMock(Course::class));
     }
 
     public function updateCourseDataProvider(): iterable
@@ -74,21 +73,21 @@ class CourseUpdaterTest extends TestCase
             'expectedException' => null
         ];
 
-//        yield 'Course created but not saved' => [
-//            'request' => $this->createMock(Request::class),
-//            'configureMocks' => function (CourseRequestMapper $mapper,
-//                                          CourseUpdateAssembler $assembler) {
-//                $mapper
-//                    ->expects(self::once())
-//                    ->method('courseUpdate')
-//                    ->willReturn($this->createMock(CourseUpdateDTO::class));
-//
-//                $assembler
-//                    ->expects(self::once())
-//                    ->method('toEntity')
-//                    ->willReturn($this->createMock(Course::class));
-//            },
-//            'expectedException' => new ModelSaveFailedException()
-//        ];
+        yield 'Course created but not saved' => [
+            'request' => $this->createMock(Request::class),
+            'configureMocks' => function (CourseRequestMapper $mapper,
+                                          CourseUpdateAssembler $assembler) {
+                $mapper
+                    ->expects(self::once())
+                    ->method('courseUpdate')
+                    ->willReturn($this->createMock(CourseUpdateDTO::class));
+
+                $assembler
+                    ->expects(self::once())
+                    ->method('toEntity')
+                    ->willReturn($this->createMock(Course::class));
+            },
+            'expectedException' => new ModelSaveFailedException()
+        ];
     }
 }

@@ -2,18 +2,11 @@
 
 namespace Tests\Unit\Modules\Enrollment\Application\DataTransformer;
 
-use App\Modules\Course\Application\Assembler\CourseCreationAssembler;
-use App\Modules\Course\Application\DTO\CourseCreationDTO;
-use App\Modules\Course\Application\Exception\TitleIsRequiredAndShouldBeStringException;
-use App\Modules\Course\Application\RequestMapper\CourseRequestMapper;
-use App\Modules\Course\Application\Service\CourseCreator;
 use App\Modules\Course\Domain\Entity\Course;
 use App\Modules\Enrollment\Application\DataTransformer\EnrollmentsDataTransformer;
 use App\Modules\Enrollment\Domain\Entity\Enrollment;
 use App\Modules\Student\Domain\Entity\Student;
-use App\SharedKernel\ModelSaveFailedException;
 use Illuminate\Contracts\Pagination\Paginator;
-use Illuminate\Http\Request;
 use PHPUnit\Framework\TestCase;
 
 class EnrollmentsDataTransformerTest extends TestCase

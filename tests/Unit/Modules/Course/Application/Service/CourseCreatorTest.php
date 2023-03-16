@@ -4,7 +4,6 @@ namespace Tests\Unit\Modules\Course\Application\Service;
 
 use App\Modules\Course\Application\Assembler\CourseCreationAssembler;
 use App\Modules\Course\Application\DTO\CourseCreationDTO;
-use App\Modules\Course\Application\Exception\TitleIsRequiredAndShouldBeStringException;
 use App\Modules\Course\Application\RequestMapper\CourseRequestMapper;
 use App\Modules\Course\Application\Service\CourseCreator;
 use App\Modules\Course\Domain\Entity\Course;
