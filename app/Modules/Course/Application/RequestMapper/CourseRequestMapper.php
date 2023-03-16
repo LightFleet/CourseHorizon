@@ -2,6 +2,7 @@
 
 namespace App\Modules\Course\Application\RequestMapper;
 
+use App\Contracts\InvalidRequestException;
 use App\Modules\Course\Application\DTO\CourseCreationDTO;
 use App\Modules\Course\Application\Exception\TitleIsRequiredAndShouldBeStringException;
 use Illuminate\Http\Request;
@@ -9,7 +10,7 @@ use Illuminate\Http\Request;
 class CourseRequestMapper
 {
     /**
-     * @throws TitleIsRequiredAndShouldBeStringException
+     * @throws InvalidRequestException
      */
     public function courseCreation(Request $request): CourseCreationDTO
     {
@@ -19,7 +20,7 @@ class CourseRequestMapper
     }
 
     /**
-     * @throws TitleIsRequiredAndShouldBeStringException
+     * @throws InvalidRequestException
      */
     private function validateRequest(Request $request): void
     {

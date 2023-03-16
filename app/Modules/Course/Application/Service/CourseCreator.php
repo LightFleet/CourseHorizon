@@ -2,8 +2,8 @@
 
 namespace App\Modules\Course\Application\Service;
 
+use App\Contracts\InvalidRequestException;
 use App\Modules\Course\Application\Assembler\CourseAssembler;
-use App\Modules\Course\Application\Exception\TitleIsRequiredAndShouldBeStringException;
 use App\Modules\Course\Application\RequestMapper\CourseRequestMapper;
 use App\SharedKernel\ModelSaveFailedException;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class CourseCreator
 
     /**
      * @throws ModelSaveFailedException
-     * @throws TitleIsRequiredAndShouldBeStringException
+     * @throws InvalidRequestException
      */
     public function createCourse(Request $request): void
     {
