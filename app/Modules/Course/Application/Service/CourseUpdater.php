@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 class CourseUpdater
 {
     public function __construct(
-        private CourseRequestMapper $requestMapper,
-        private CourseUpdateAssembler $courseAssembler
+        private CourseRequestMapper   $mapper,
+        private CourseUpdateAssembler $assembler
     )
     {
     }
@@ -24,8 +24,8 @@ class CourseUpdater
      */
     public function updateCourse(Request $request, Course $course): void
     {
-        $courseUpdateDTO = $this->requestMapper->courseUpdate($request);
-        $this->courseAssembler->toEntity($courseUpdateDTO, $course);
+        $courseUpdateDTO = $this->mapper->courseUpdate($request);
+        $course = $this->assembler->toEntity($courseUpdateDTO, $course);
 
         $saved = $course->save();
 
