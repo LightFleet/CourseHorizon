@@ -2,7 +2,7 @@
     <a href="https://google.com" target="_blank">
         <img src="https://img.icons8.com/nolan/512/knowledge-sharing.png" height="100px">
     </a>
-    <h1 align="center">Course Horizon</h1>
+    <h1 align="center">Course Horizon 📖</h1>
     <br>
 </p>
 
