@@ -11,8 +11,8 @@ use Illuminate\Http\Request;
 class CourseCreator
 {
     public function __construct(
-        private CourseRequestMapper $requestMapper,
-        private CourseCreationAssembler $courseAssembler
+        private CourseRequestMapper $mapper,
+        private CourseCreationAssembler $assembler
     )
     {
     }
@@ -23,8 +23,8 @@ class CourseCreator
      */
     public function createCourse(Request $request): void
     {
-        $courseCreationDTO = $this->requestMapper->courseCreation($request);
-        $course = $this->courseAssembler->fromDTO($courseCreationDTO);
+        $courseCreationDTO = $this->mapper->courseCreation($request);
+        $course = $this->assembler->fromDTO($courseCreationDTO);
 
         $saved = $course->save();
 
