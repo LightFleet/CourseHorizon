@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Modules\Course\Application\Service;
+namespace App\Modules\Enrollment\Application\Service;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
-class CourseFetcher
+class EnrollmentsFetcher
 {
     public function modifyQuery(Builder $query, Request $request): Builder
     {

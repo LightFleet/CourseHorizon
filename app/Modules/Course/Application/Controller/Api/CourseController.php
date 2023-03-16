@@ -8,21 +8,11 @@ use App\Modules\Course\Application\Service\CourseCreator;
 use App\Modules\Course\Application\Service\CourseDeleter;
 use App\Modules\Course\Application\Service\CourseUpdater;
 use App\Modules\Course\Domain\Entity\Course;
-use App\Modules\Course\Application\Service\CourseFetcher;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function fetchCourses(CourseFetcher $courseFetcher, Request $request): JsonResponse
-    {
-        $query = $courseFetcher->modifyQuery(Course::query(), $request);
-
-        $courses = $query->paginate(20);
-
-        return response()->json($courses);
-    }
-
     public function createCourse(Request $request, CourseCreator $courseCreator): JsonResponse
     {
         try {

@@ -2,7 +2,9 @@
 
 namespace App\Modules\Course\Domain\Entity;
 
+use App\Modules\Enrollment\Domain\Entity\Enrollment;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Course extends Model
 {
@@ -20,5 +22,10 @@ class Course extends Model
     public function setTitle(string $title): void
     {
         $this->title = $title;
+    }
+
+    public function enrollments(): HasMany
+    {
+        return $this->hasMany(Enrollment::class);
     }
 }
