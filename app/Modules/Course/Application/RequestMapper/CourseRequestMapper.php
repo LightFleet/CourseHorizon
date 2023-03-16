@@ -4,6 +4,7 @@ namespace App\Modules\Course\Application\RequestMapper;
 
 use App\Contracts\InvalidRequestException;
 use App\Modules\Course\Application\DTO\CourseCreationDTO;
+use App\Modules\Course\Application\DTO\CourseUpdateDTO;
 use App\Modules\Course\Application\Exception\TitleIsRequiredAndShouldBeStringException;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,21 @@ class CourseRequestMapper
     {
         $this->validateRequest($request);
 
-        return CourseCreationDTO::fromRequestData($request);
+        $requestData = $request->only(['title']);
+
+        return CourseCreationDTO::fromRequestData($requestData);
+    }
+
+    /**
+     * @throws InvalidRequestException
+     */
+    public function courseUpdate(Request $request): CourseUpdateDTO
+    {
+        $this->validateRequest($request);
+
+        $requestData = $request->only(['title']);
+
+        return CourseUpdateDTO::fromRequestData($requestData);
     }
 
     /**

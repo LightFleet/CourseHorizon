@@ -8,5 +8,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/courses', [\App\Modules\Course\Application\Controller\Api\CourseController::class, 'fetchCourses']);
-Route::put('/course', [\App\Modules\Course\Application\Controller\Api\CourseController::class, 'createCourse']);
+Route::post('/course', [\App\Modules\Course\Application\Controller\Api\CourseController::class, 'createCourse']);
+Route::patch('/course/:id', [\App\Modules\Course\Application\Controller\Api\CourseController::class, 'updateCourse']);
+Route::delete('/course/:id', [\App\Modules\Course\Application\Controller\Api\CourseController::class, 'deleteCourse']);
 
