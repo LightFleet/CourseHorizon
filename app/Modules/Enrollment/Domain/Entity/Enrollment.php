@@ -34,6 +34,13 @@ class Enrollment extends Model
         return new Status($this->status);
     }
 
+    public function setStatus(Status $status): self
+    {
+        $this->status = $status->getValue();
+
+        return $this;
+    }
+
     public function getCreatedAt(): \DateTimeImmutable
     {
         return \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $this->created_at);
